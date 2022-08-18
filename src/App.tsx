@@ -20,6 +20,12 @@ class App extends React.Component<Props, State> {
     };
   }
 
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(resopnse => resopnse.json())
+      .then(data => this.setState({robotGallery:data}));
+  }
+
 
   render() {
     return (
@@ -30,7 +36,7 @@ class App extends React.Component<Props, State> {
         </div>
         <ShoppingCart />
         <div className={styles.robotList}>
-          {robots.map(r => <Robot id={r.id} email={r.email} name={r.name} />)}
+          {this.state.robotGallery.map(r => <Robot id={r.id} email={r.email} name={r.name} />)}
         </div>
       </div>
     );
