@@ -5,21 +5,36 @@ import Robot from "./components/Robot";
 import styles from './App.module.css';
 import ShoppingCart from './components/ShoppingCart';
 
+interface Props { }
+
+interface State {
+  robotGallery: any[]
+}
 
 
-function App() {
-  return (
-    <div className={styles.app}>
-      <div className={styles.appHeader}>
-        <img src={logo} className={styles.appLogo} alt="logo" />
-        <h1>hahaha... hello world</h1>
+class App extends React.Component<Props, State> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      robotGallery: [],
+    };
+  }
+
+
+  render() {
+    return (
+      <div className={styles.app}>
+        <div className={styles.appHeader}>
+          <img src={logo} className={styles.appLogo} alt="logo" />
+          <h1>hahaha... hello world</h1>
+        </div>
+        <ShoppingCart />
+        <div className={styles.robotList}>
+          {robots.map(r => <Robot id={r.id} email={r.email} name={r.name} />)}
+        </div>
       </div>
-      <ShoppingCart/>
-      <div className={styles.robotList}>
-        {robots.map(r => <Robot id={r.id} email={r.email} name={r.name} />)}
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

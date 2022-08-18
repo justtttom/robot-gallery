@@ -22,8 +22,10 @@ class ShoppingCart extends React.Component<Props, State> {
   handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     console.log(e.target);
     console.log(e.currentTarget);
+    if ((e.target as HTMLElement).nodeName === "SPAN") {
+      this.setState({ isOpen: !this.state.isOpen });
+    }
     
-    this.setState({ isOpen: !this.state.isOpen });
   }
 
   render() {
