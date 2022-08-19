@@ -16,7 +16,7 @@ interface State {
 
 class App extends React.Component<Props, State> {
 
-  // 生命周期第一阶段： 初始化
+  // * 生命周期第一阶段： 初始化
   // 初始化组件 state
   constructor(props) {
     super(props);
@@ -33,6 +33,20 @@ class App extends React.Component<Props, State> {
       .then(data => this.setState({ robotGallery: data }));
   }
 
+  // * 生命周期第二阶段： 更新
+  //  当组件接受一个新的 prop （更新后）时被调用
+  // componentWillReceiveProps
+  // state getDerivedStateFromProps(nextProps,preState) { }
+  // shouldComponentUpdate(nextProps, nextState) { 
+  //   return nextState.some !== this.state.some
+  // }
+  // 组件更新后调用
+  componentDidUpdate() { }
+
+  // * 生命周期第三阶段: 销毁
+  // 组件销毁后调用
+  // 可以当做析构函数，destructor 来使用
+  componentWillUnmount() { }
 
   render() {
     return (
