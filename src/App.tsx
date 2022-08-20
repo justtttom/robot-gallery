@@ -6,7 +6,9 @@ import styles from './App.module.css';
 import ShoppingCart from './components/ShoppingCart';
 import { log } from 'console';
 
-interface Props { }
+interface Props {
+  username: any,
+}
 
 interface State {
   robotGallery: any[];
@@ -14,7 +16,7 @@ interface State {
 }
 
 
-const App: React.FC = (props) => {
+const App: React.FC<Props> = (props) => {
   const [count, setCount] = useState<number>(0);
   const [robotGallery, setRobotGallery] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -33,7 +35,7 @@ const App: React.FC = (props) => {
         // .then(data => setRobotGallery(data))
         const data = await response.json()
         setRobotGallery(data);
-      } catch (e:any) {
+      } catch (e: any) {
         setError(e.message);
       }
       setLoading(false);
@@ -47,12 +49,13 @@ const App: React.FC = (props) => {
         <img src={logo} className={styles.appLogo} alt="logo" />
         <h1>hahaha... hello world</h1>
       </div>
+      <h2>{props.username}</h2>
       <button onClick={() => {
         setCount(count + 1)
       }}>hey</button>
       <span>count:{count}</span>
       <ShoppingCart />
-      {(!error || error !== "" )&& <div>网站出错：{error}</div>}
+      {(!error || error !== "") && <div>网站出错：{error}</div>}
       {!loading ? (
         <div className={styles.robotList}>
           {robotGallery.map(r => <Robot id={r.id} email={r.email} name={r.name} />)}
