@@ -7,7 +7,7 @@ import ShoppingCart from './components/ShoppingCart';
 import { log } from 'console';
 
 interface Props {
-  username: any,
+  username: string,
 }
 
 interface State {
