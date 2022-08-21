@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import logo from './assets/images/logo.svg';
 import robots from './mockdata/robots.json';
 import Robot from "./components/Robot";
 import styles from './App.module.css';
 import ShoppingCart from './components/ShoppingCart';
 import { log } from 'console';
+import { appContext } from './index'
 
 interface Props { }
 
@@ -18,7 +19,8 @@ const App: React.FC<Props> = (props) => {
   const [count, setCount] = useState<number>(0);
   const [robotGallery, setRobotGallery] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>()
+  const [error, setError] = useState<string>();
+  const value = useContext(appContext)
 
   useEffect(() => {
     document.title = `点击次数为${count}次`
@@ -47,6 +49,7 @@ const App: React.FC<Props> = (props) => {
         <img src={logo} className={styles.appLogo} alt="logo" />
         <h1>hahaha... hello world</h1>
       </div>
+      <h2>{value.username}</h2>
       <button onClick={() => {
         setCount(count + 1)
       }}>hey</button>

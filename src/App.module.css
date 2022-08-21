@@ -26,6 +26,10 @@ h1 {
     font-family: 'Slidefu';
     font-size: 60px;
 }
+h2 {
+    font-family: 'Slidefu';
+    font-size: 30px;
+}
 
 .robotList{
     width: 85vw;
