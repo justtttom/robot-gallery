@@ -1,11 +1,11 @@
-import React, { useState, useEffect,useContext } from 'react';
+import React, { useState, useEffect,useContext, Children } from 'react';
 import logo from './assets/images/logo.svg';
 import robots from './mockdata/robots.json';
 import Robot from "./components/Robot";
 import styles from './App.module.css';
 import ShoppingCart from './components/ShoppingCart';
 import { log } from 'console';
-import { appContext } from './index'
+import { appContext } from './AppState'
 
 interface Props { }
 
@@ -50,6 +50,7 @@ const App: React.FC<Props> = (props) => {
         <h1>hahaha... hello world</h1>
       </div>
       <h2>{value.username}</h2>
+      {/* <Children username={props.username}/> */}
       <button onClick={() => {
         setCount(count + 1)
       }}>hey</button>
