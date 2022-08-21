@@ -6,9 +6,7 @@ import styles from './App.module.css';
 import ShoppingCart from './components/ShoppingCart';
 import { log } from 'console';
 
-interface Props {
-  username: string,
-}
+interface Props { }
 
 interface State {
   robotGallery: any[];
@@ -49,7 +47,6 @@ const App: React.FC<Props> = (props) => {
         <img src={logo} className={styles.appLogo} alt="logo" />
         <h1>hahaha... hello world</h1>
       </div>
-      <h2>{props.username}</h2>
       <button onClick={() => {
         setCount(count + 1)
       }}>hey</button>
