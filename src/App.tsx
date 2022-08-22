@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import logo from './assets/images/logo.svg';
 import Robot from "./components/Robot";
-import RobotDisCount from "./components/RobotDiscount";
+import RobotDiscount from "./components/RobotDiscount";
 import styles from './App.module.css';
 import ShoppingCart from './components/ShoppingCart';
 import { appContext } from './AppState'
 
 interface Props { }
-
+  
 interface State {
   robotGallery: any[];
   count: number;
@@ -59,7 +59,7 @@ const App: React.FC<Props> = (props) => {
       {!loading ? (
         <div className={styles.robotList}>
           {robotGallery.map((r, index) =>
-            index % 2 === 0 ? (<RobotDisCount id={r.id} email={r.email} name={r.name} />) :
+            index % 2 === 0 ? (<RobotDiscount id={r.id} email={r.email} name={r.name} />) :
               (<Robot id={r.id} email={r.email} name={r.name} />
               )
           )}
